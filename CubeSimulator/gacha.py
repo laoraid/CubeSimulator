@@ -4,7 +4,18 @@ from bisect import bisect
 from decimal import Decimal
 from typing import List, TypeVar
 
+from .utils.classes import Cube, Rank
+from .prbtable import upgrade_table
+
 T = TypeVar("T")
+
+
+def _caniupgrade(rank: Rank, cube: Cube) -> bool:
+    """Rank: Source Rank, not target."""
+    p = random.randint(0, 100000)
+    if p < upgrade_table[rank.value][cube.value]:
+        return True
+    return False
 
 
 def pick(arr: List[T], key=None) -> T:

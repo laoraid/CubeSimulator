@@ -13,6 +13,8 @@ class Item(object):
     addrank: Rank = attr.ib(default=Rank.rare)
     addoptions: List[Option] = attr.ib(init=False, factory=list)
 
+    types = ItemType
+
     def __attrs_post_init__(self):
         # TODO: setting options
         raise NotImplementedError
