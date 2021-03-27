@@ -1,4 +1,4 @@
-from enum import Enum, auto
+from enum import Enum
 
 import attr
 
@@ -17,26 +17,26 @@ class Rank(Enum):
 
 
 class ItemType(Enum):
-    weapon = auto()
-    emblem = auto()
-    subweapon = auto()
-    forcering = auto()
-    shield = auto()
-    helmet = auto()
-    top = auto()
-    suit = auto()
-    bottom = auto()
-    shoes = auto()
-    glove = auto()
-    cloak = auto()
-    belt = auto()
-    shoulder = auto()
-    face = auto()
-    eye = auto()
-    earring = auto()
-    ring = auto()
-    pendant = auto()
-    heart = auto()
+    weapon = "무기"
+    emblem = "엠블렘"
+    subweapon = "보조무기"
+    forcering = "포스실드, 소울링"
+    shield = "방패"
+    helmet = "모자"
+    top = "상의"
+    suit = "한벌옷"
+    bottom = "하의"
+    shoes = "신발"
+    glove = "장갑"
+    cloak = "망토"
+    belt = "벨트"
+    shoulder = "어깨장식"
+    face = "얼굴장식"
+    eye = "눈장식"
+    earring = "귀고리"
+    ring = "반지"
+    pendant = "펜던트"
+    heart = "기계심장"
 
 
 @attr.s(auto_attribs=True, frozen=True)
