@@ -17,6 +17,7 @@ class Item(object):
 
     def __attrs_post_init__(self):
         # TODO: setting options
+        self._usedcube = [0, 0, 0, 0]
         raise NotImplementedError
 
     def runcube(self, cubetype: Cube):
@@ -25,3 +26,6 @@ class Item(object):
             pass
         # TODO: pick options
         raise NotImplementedError
+
+    def getusedcube(self, cubetype: Cube):
+        return self._usedcube[cubetype.value]
