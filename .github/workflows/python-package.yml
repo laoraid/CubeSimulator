@@ -8,6 +8,10 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+    paths:
+      - 'CubeSimulator/**'
+      - 'tests/**'
+      - '.github/**'
 
 jobs:
   Test:
@@ -31,7 +35,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install flake8 pytest pytest-cov pep8-naming codecov
+        python -m pip install flake8 pytest pytest-cov pytest-xdist pep8-naming codecov
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |
@@ -39,7 +43,7 @@ jobs:
         flake8 CubeSimulator --max-line-length=88 --ignore=E203,W503
     - name: Unit Test
       run: |
-        python -m pytest -v --cov=CubeSimulator
+        python -m pytest -v --cov=CubeSimulator -n 4
     - name: Upload coverage
       uses: codecov/codecov-action@v1
       with:
